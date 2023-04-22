@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <h1 class="text-red-800 bold text-center">Marks Details</h1>
+   
+
+  <!-- component -->
+<div class="md:px-32 py-8 w-full">
+
+    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+      <table class="min-w-full bg-white">
+       
+        
+        
+        
+       
+        <thead class="bg-gray-800 text-white">
+
+        
+          <tr>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Sr_No</th>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Name</th>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Date Of Birth</th>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Score of physics</th>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Score of Chemistry</td>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Score of cs</td>
+            <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Total Percentage</td>
+          </tr>
+      
+        </thead>
+       
+      <tbody class="text-gray-700">
+        {% for student in studentData %}
+        <tr>
+          <td class="text-center">{{student.id}}</td>
+          <td class="text-center">{{ student.Name }}</td>
+          <td class="text-center">{{ student.DOb }}</td>
+          <td class="text-center">{{ student.PhysicsMarks }}</td>
+          <td class="text-center">{{ student.ChemistryMarks }}</td>
+          <td class="text-center">{{ student.CsMarks }}</td>
+  
+  
+          {% for percentage in List %}
+
+            {% if forloop.parentloop.counter == forloop.counter %}
+              <td class="text-center">{{ percentage }}</td>
+            {% endif %}
+            
+          {% endfor %}
+  
+          
+        </tr>
+      {% endfor %}
+  
+    
+    
+    
+    
+      </table>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
